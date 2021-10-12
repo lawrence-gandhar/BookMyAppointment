@@ -1,0 +1,109 @@
+#:kivy 2.0.0
+#: import NoTransition kivy.uix.screenmanager.NoTransition
+
+<ScreenManagement>:
+    transition: NoTransition()
+    id: main_manager
+
+    WelcomeScreen:
+        id: welcome_screen
+
+    SignUpScreen:
+        id: signup_screen
+
+    LoginScreen:
+        id: login_screen
+
+    MenuScreen:
+        id: menulist
+
+    Dashboard:
+        id: dashboard
+
+    Profile:
+        id: manage_profile
+
+
+
+<MenuScreen>:
+    id: menulist
+    name: "menulist"
+
+    MDBoxLayout:
+        ScrollView:
+            MDList:
+                OneLineAvatarListItem:
+                    text: "Profile"
+                    on_press:
+                        root.manager.current = "manage_profile"
+
+                    ImageLeftWidget:
+                        source: "icons/iuser.png"
+
+                OneLineAvatarListItem:
+                    text: "Dashboard"
+
+                    ImageLeftWidget:
+                        source: "icons/idashboard.png"
+
+                OneLineAvatarListItem:
+                    text: "Appointments"
+
+                    ImageLeftWidget:
+                        source: "icons/i_view_schedule.png"
+
+                OneLineAvatarListItem:
+                    text: "Events & Meetings"
+
+                    ImageLeftWidget:
+                        source: "icons/i_event.png"
+
+                OneLineAvatarListItem:
+                    text: "Messages"
+
+                    ImageLeftWidget:
+                        source: "icons/ichat.png"
+
+                OneLineAvatarListItem:
+                    text: "Reviews"
+
+                    ImageLeftWidget:
+                        source: "icons/i_reviews.png"
+
+                OneLineAvatarListItem:
+                    text: "Customers & Clients"
+
+                    ImageLeftWidget:
+                        source: "icons/icustomers2.png"
+
+                OneLineAvatarListItem:
+                    text: "Checkout"
+
+                    ImageLeftWidget:
+                        source: "icons/icheckout_cart2.png"
+
+                OneLineAvatarListItem:
+                    text: "Finance"
+
+                    ImageLeftWidget:
+                        source: "icons/icheckout_euro.png"
+
+                OneLineAvatarListItem:
+                    text: "Reports"
+
+                    ImageLeftWidget:
+                        source: "icons/i_reports_2.png"
+
+                OneLineAvatarListItem:
+                    text: "Settings"
+
+                    ImageLeftWidget:
+                        source: "icons/i_systems.png"
+
+
+                OneLineAvatarListItem:
+                    text: "Logout"
+                    on_press: app.logout()
+
+                    ImageLeftWidget:
+                        source: "icons/i_logout.png"

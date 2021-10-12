@@ -1,0 +1,224 @@
+#:kivy 2.0.0
+
+<WelcomeScreen>:
+    name: "welcome_screen"
+    id: welcome_screen
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: (1, 1, 1, 1)
+
+        MDCard:
+            size_hint: None, None
+            size: self.parent.size[0], (self.parent.size[1]/2) + 200
+            pos_hint: {"center_y": 0, "top":0}
+            orientation: "vertical"
+            padding: "8dp"
+            spacing: "20dp"
+            md_bg_color: (1, 1, 1, 1)
+
+            MDLabel:
+                text: "Online Dental"
+                theme_text_color: "Custom"
+                text_color: 5, 147, 235, 1
+                halign: "center"
+                pos_hint: {"center_x": 0.5, "top":0.6}
+                size_hint_y: None
+                size: self.parent.size[0], 100
+                font_style: "H3"
+
+            MDLabel:
+                text: "Appointments"
+                theme_text_color: "Custom"
+                text_color: 5, 147, 235, 1
+                halign: "center"
+                pos_hint: {"center_y": 0, "top":0.5}
+                size_hint_y: None
+                size: self.parent.size[0], 60
+                font_style: "H5"
+
+            Image:
+                size_hint_y: None
+                source: 'icons/odc.png'
+                size: self.parent.size[0], (self.parent.size[1]/2)
+                allow_stretch: True
+
+
+        MDCard:
+            size_hint: None, None
+            size: self.parent.size[0], (self.parent.size[1]/2) - 200
+            pos_hint: {"center_x": 0.5}
+            orientation: "vertical"
+            padding: "8dp"
+            spacing: "20dp"
+
+            MDLabel:
+                size_hint_y: None
+                size: self.parent.size[0], 100
+
+            MDRectangleFlatButton:
+                size_hint: None, None
+                size_hint_x: 1/4
+                text: "Login"
+                md_bg_color: 43/255.0, 194/255.0, 153/255.0, 1
+                pos_hint: {"center_x": 0.5}
+                on_press: root.manager.current = "login"
+
+            MDRectangleFlatButton:
+                size_hint: None, None
+                size_hint_x: 1/4
+                text: "Sign Up"
+                md_bg_color: 233/255.0, 194/255.0, 153/255.0, 1
+                pos_hint: {"center_x": 0.5}
+                on_press: root.manager.current = "signup_screen"
+
+            Widget:
+
+<SignUpScreen>:
+    id: signup_screen
+    name: "signup_screen"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: (1, 1, 1, 1)
+        size_hint: 1, 1
+
+        MDToolbar:
+            title: "Online Dental :: Sign Up Form"
+
+
+        MDBoxLayout:
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+
+
+                GridLayout:
+                    size_hint_y: None
+                    cols: 1
+                    row_force_default: True
+                    row_default_height: 120
+                    minimum_height: self.height
+
+                    MDBoxLayout:
+                        size_hint: ("100dp", "100dp")
+
+                    MDBoxLayout:
+                        padding: ("40dp", "10dp")
+
+                        MDLabel:
+                            text: "Email"
+                            theme_text_color: "Custom"
+                            text_color: 5, 147, 235, 1
+
+                    MDBoxLayout:
+                        padding: ("40dp", "10dp")
+                        size_hint_y: None
+                        size: self.parent.size[0], 120
+
+                        MDTextField:
+                            id: username_signup
+                            required: True
+                            multiline: False
+                            helper_text_mode: "on_error"
+                            helper_text: "This is required"
+
+                    MDBoxLayout:
+                        padding: ("40dp", "10dp")
+
+                        MDLabel:
+                            text: "First Name"
+                            theme_text_color: "Custom"
+                            text_color: 5, 147, 235, 1
+
+                    MDBoxLayout:
+                        padding: ("40dp", "1dp")
+                        size_hint_y: None
+                        size: self.parent.size[0], 120
+
+                        MDTextField:
+                            id: firstname_signup
+                            required: True
+                            multiline: False
+                            helper_text_mode: "on_error"
+                            helper_text: "This is required"
+
+                    MDBoxLayout:
+                        padding: ("40dp", "1dp")
+
+                        MDLabel:
+                            text: "Last Name"
+                            theme_text_color: "Custom"
+                            text_color: 5, 147, 235, 1
+
+                    MDBoxLayout:
+                        padding: ("40dp", "10dp")
+                        size_hint_y: None
+                        size: self.parent.size[0], 120
+
+                        MDTextField:
+                            id: lastname_signup
+                            required: True
+                            multiline: False
+                            helper_text_mode: "on_error"
+                            helper_text: "This is required"
+
+                    MDBoxLayout:
+                        padding: ("40dp", "1dp")
+
+                        MDLabel:
+                            text: "Password"
+                            theme_text_color: "Custom"
+                            text_color: 5, 147, 235, 1
+
+                    MDBoxLayout:
+                        padding: ("40dp", "10dp")
+
+                        MDTextField:
+                            id: password_signup
+                            required: True
+                            multiline: False
+                            helper_text_mode: "on_error"
+                            helper_text: "This is a required field"
+
+                    MDBoxLayout:
+                        size_hint: ("100dp", "100dp")
+
+                    MDBoxLayout:
+                        padding: ("40dp", "40dp")
+
+                        MDLabel:
+                            text: "By creating an account you agree to the Terms and Use & Privacy Policy"
+                            theme_text_color: "Custom"
+                            text_color: 1/255, 1/255, 1/255, 255/255
+                            halign: "center"
+
+                    MDBoxLayout:
+                        size_hint: ("100dp", "100dp")
+                        orientation: "horizontal"
+
+                        GridLayout:
+                            cols: 2
+                            rows: 1
+
+                            MDBoxLayout:
+                                AnchorLayout:
+                                    anchor_x: 'right'
+                                    padding: ["10dp", "5dp"]
+
+                                    MDRaisedButton:
+                                        id: "signup_submit"
+                                        text: "Sign Up"
+                                        md_bg_color: 43/255.0, 194/255.0, 153/255.0, 1
+                                        elevation: 20
+
+                            MDBoxLayout:
+                                AnchorLayout:
+                                    anchor_x: 'left'
+                                    padding: ["10dp", "5dp"]
+
+                                    MDRaisedButton:
+                                        text: "Cancel"
+                                        md_bg_color: 252/255.0, 175/255.0, 8/255.0, 1
+                                        elevation: 20
+                                        on_press: root.manager.current = "welcome_screen"

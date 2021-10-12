@@ -1,0 +1,49 @@
+#:kivy 2.0.0
+
+<Profile>:
+    name: "manage_profile"
+    id: manage_profile
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: (1, 1, 1, 1)
+
+
+        MDToolbar:
+            title: "MDToolbar"
+            left_action_items: [["menu", lambda x: app.show_menu(), "This is the navigation"]]
+            right_action_items: [["dots-vertical", "this is the More Actions"]]
+
+
+        ScrollView:
+
+            MDBoxLayout:
+                orientation: "vertical"
+
+                MDCard:
+                    canvas:
+                        Color:
+                            rgba: (1, 1, 1, 1)
+                        Rectangle:
+                            pos: ((self.parent.size[0]/2) - (350/2) - 10, self.parent.size[1]/2 + 100)
+                            size: 350, 350
+                            source: 'icons/user.png'
+
+                MDLabel:
+                    halign: "center"
+                    pos_hint: {"center_x": 0.5}
+                    spacing: "20dp"
+
+                MDTextField:
+                    required: True
+                    multiline: False
+                    hint_text: "Username"
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_x: 0.5
+
+                MDTextField:
+                    required: True
+                    multiline: False
+                    hint_text: "Password"
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_x: 0.5
