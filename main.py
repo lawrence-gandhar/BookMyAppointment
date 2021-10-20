@@ -17,6 +17,9 @@ import kivy
 kivy.require('2.0.0')
 
 from kivymd.app import MDApp
+from kivymd.uix.button import MDFlatButton
+from kivymd.uix.toolbar import MDToolbar
+
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.graphics import *
@@ -28,13 +31,18 @@ import urllib3
 from charset_normalizer import *
 import idna
 import PIL
-from helper_files import dbmodels as db
+
 from datetime import datetime
 
 from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 
-from kivymd.uix.snackbar import Snackbar
+from helper_files import dbmodels as db
+from helper_files.custom_widgets import CredententialsErrorSnackbar
 
+#
+# COLOR CONSTANTS
+
+bg_alert = (1, 99/255, 71/255, 1)
 
 # ==============================================================================
 # CONSTANTS & CONNECTION STRINGS
@@ -46,6 +54,7 @@ Builder.load_file("kv_files/signup.kv")
 Builder.load_file("kv_files/login.kv")
 Builder.load_file("kv_files/dashboard.kv")
 Builder.load_file("kv_files/manage_profile.kv")
+Builder.load_file("kv_files/custom_widgets.kv")
 
 
 # ==============================================================================
@@ -65,6 +74,8 @@ class SignUpScreen(Screen):
         first_name = self.ids.first_name.text
 
 
+
+
 # ==============================================================================
 # LOGIN SCREEN
 # ==============================================================================
@@ -73,6 +84,7 @@ class LoginScreen(Screen):
     # Check authorization/credentials by connecting to the API Endpoint
     def check_login(self):
         """
+
         username = self.ids.username.text
         password = self.ids.passwd.text
 
@@ -106,9 +118,21 @@ class LoginScreen(Screen):
                 db.session.add(obj)
                 db.session.commit()
 
-        print(username, password)
+            print(username, password)
+            self.manager.current = "dashboard"
+        else:
+            snackbar = CredententialsErrorSnackbar(
+                bg_color = bg_alert,
+                text = "Invalid Credentials. Please",
+                snackbar_x = "10dp",
+                snackbar_y = "10dp",
+            )
+            snackbar.size_hint_x = (Window.width - (snackbar.snackbar_x * 2)) / Window.width
+            snackbar.size_hint_y = 0.2
+            snackbar.open()
         """
         self.manager.current = "dashboard"
+
 
 # ==============================================================================
 # MENU SCREEN
@@ -130,6 +154,14 @@ class Dashboard(Screen):
 class Profile(Screen):
     pass
 
+#
+#
+#
+class MainToolbar(MDToolbar):
+    def show_menu(self, *args, **kwargs):
+        self.parent.parent.manager.current = "menulist"
+
+
 
 class ScreenManagement(ScreenManager):
     def __init__(self, **kwargs):
@@ -144,8 +176,6 @@ class OnlineDental(MDApp, Screen):
         Window.clearcolor = (1, 1, 1, 1)
         return ScreenManagement()
 
-    def show_menu(self, *args, **kwargs):
-        self.root.current = "menulist"
 
     def logout(self):
         try:

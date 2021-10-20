@@ -1,0 +1,41 @@
+<CredententialsErrorSnackbar>
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDLabel:
+            size_hint_y: None
+            height: 100
+            text: "Oops!"
+            font_size: root.font_size
+            theme_text_color: 'Custom'
+            text_color: get_color_from_hex('ffffff')
+            shorten: True
+            shorten_from: 'right'
+            halign: "center"
+            font_style: "H4"
+
+        MDLabel:
+            size_hint_y: None
+            height: 100
+            text: "Still not correct, give it another try"
+            font_size: root.font_size
+            theme_text_color: 'Custom'
+            text_color: get_color_from_hex('000000')
+            shorten: True
+            shorten_from: 'right'
+            halign: "center"
+            md_bg_color: (1, 1, 1, 1)
+            font_style: "H5"
+
+        MDLabel:
+            size_hint_y: None
+            height: 100
+            text: "Enter the correct username and password to sign in."
+            font_size: root.font_size
+            theme_text_color: 'Custom'
+            text_color: get_color_from_hex('ffffff')
+            shorten: True
+            shorten_from: 'right'
+            halign: "center"
+            font_style: "Subtitle1"

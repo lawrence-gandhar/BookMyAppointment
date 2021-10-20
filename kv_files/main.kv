@@ -25,85 +25,176 @@
 
 
 
+<MainToolbar>:
+    title: "Online Dental :: Appointments"
+    left_action_items: [["menu", lambda x: self.show_menu(), "This is the navigation"]]
+    right_action_items: [["dots-vertical", "this is the More Actions"]]
+
+
+<MenuButton@Button>:
+    size_hint: (1, 1)
+    bg_color: (1,1,1,1)
+
+
+<MenuItem@MDBoxLayout>:
+    orientation: "vertical"
+    padding: "10dp"
+    spacing: "10dp"
+    size_hint: None, None
+    size_hint: (1, 1)
+    md_bg_color: (1,1,1,1)
+
+
+<MenuBox@MDBoxLayout>:
+    orientation: "vertical"
+    size_hint: None, None
+    size_hint: (1, 1)
+    md_bg_color: (1,1,1,1)
+
+
+
+<MenuImage@Image>:
+    allow_stretch: True
+    size_hint: None, None
+    size_hint_x: 0.7
+    size_hint_y: 0.7
+    pos_hint: {"center_x": 0.5, "center_y":0.5}
+
+
+
+
 <MenuScreen>:
     id: menulist
     name: "menulist"
 
     MDBoxLayout:
+        orientation: "vertical"
+
+        MainToolbar:
+
         ScrollView:
-            MDList:
-                OneLineAvatarListItem:
-                    text: "Profile"
-                    on_press:
-                        root.manager.current = "manage_profile"
-
-                    ImageLeftWidget:
-                        source: "icons/iuser.png"
-
-                OneLineAvatarListItem:
-                    text: "Dashboard"
-
-                    ImageLeftWidget:
-                        source: "icons/idashboard.png"
-
-                OneLineAvatarListItem:
-                    text: "Appointments"
-
-                    ImageLeftWidget:
-                        source: "icons/i_view_schedule.png"
-
-                OneLineAvatarListItem:
-                    text: "Events & Meetings"
-
-                    ImageLeftWidget:
-                        source: "icons/i_event.png"
-
-                OneLineAvatarListItem:
-                    text: "Messages"
-
-                    ImageLeftWidget:
-                        source: "icons/ichat.png"
-
-                OneLineAvatarListItem:
-                    text: "Reviews"
-
-                    ImageLeftWidget:
-                        source: "icons/i_reviews.png"
-
-                OneLineAvatarListItem:
-                    text: "Customers & Clients"
-
-                    ImageLeftWidget:
-                        source: "icons/icustomers2.png"
-
-                OneLineAvatarListItem:
-                    text: "Checkout"
-
-                    ImageLeftWidget:
-                        source: "icons/icheckout_cart2.png"
-
-                OneLineAvatarListItem:
-                    text: "Finance"
-
-                    ImageLeftWidget:
-                        source: "icons/icheckout_euro.png"
-
-                OneLineAvatarListItem:
-                    text: "Reports"
-
-                    ImageLeftWidget:
-                        source: "icons/i_reports_2.png"
-
-                OneLineAvatarListItem:
-                    text: "Settings"
-
-                    ImageLeftWidget:
-                        source: "icons/i_systems.png"
+            do_scroll_x: False
+            do_scroll_y: True
 
 
-                OneLineAvatarListItem:
-                    text: "Logout"
-                    on_press: app.logout()
+            GridLayout:
+                size_hint_y: None
+                cols: 3
+                row_force_default: True
+                row_default_height: 320
+                minimum_height: self.height
 
-                    ImageLeftWidget:
-                        source: "icons/i_logout.png"
+                MenuButton:
+                    on_press: root.manager.current = "manage_profile"
+                    GridLayout:
+                        cols: 1
+                        row_default_height: self.parent.height
+                        width: self.parent.width
+
+                        MenuItem:
+                            MenuBox:
+                                MDBoxLayout:
+                                    size_hint: None, None
+                                    size_hint: (0.5, 0.5)
+                                    pos_hint: None, None
+                                    pos_hint:{"center_x":0.5, "center_y":0.5}
+
+                                    MenuImage:
+                                        source: "icons/iuser.png"
+                            MDLabel:
+                                text: "Profile"
+                                halign: "center"
+                                md_bg_color: (1,1,1,1)
+                                size_hint: None, None
+                                size_hint_y: .2
+                                size_hint_x: 1
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/idashboard.png"
+                        MDLabel:
+                            text: "Dashboard"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/i_view_schedule.png"
+                        MDLabel:
+                            text: "Appointments"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/i_event.png"
+                        MDLabel:
+                            text: "Events & Meetings"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/ichat.png"
+                        MDLabel:
+                            text: "Messages"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/i_reviews.png"
+                        MDLabel:
+                            text: "Reviews"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/i_reviews.png"
+                        MDLabel:
+                            text: "Customers & Clients"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/icustomers2.png"
+                        MDLabel:
+                            text: "Checkout"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/icheckout_cart2.png"
+                        MDLabel:
+                            text: "Finance"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/icheckout_euro.png"
+                        MDLabel:
+                            text: "Reports"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/i_systems.png"
+                        MDLabel:
+                            text: "Settings"
+                            halign: "center"
+
+                MenuItem:
+                    MenuBox:
+                        MenuImage:
+                            source: "icons/i_logout.png"
+                        MDLabel:
+                            text: "Logout"
+                            halign: "center"
+
+                Widget:

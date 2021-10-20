@@ -1,60 +1,76 @@
-MDLabel:
-          text: "Login"
-          adaptive_height: True
-          halign: "center"
-          theme_text_color: "Custom"
-          text_color: 5, 147, 235, 1
-          font_style: "H5"
-          halign: "center"
+MDList:
+          OneLineAvatarListItem:
+              text: "Profile"
+              on_press:
+                  root.manager.current = "manage_profile"
 
-      MDTextField:
-          id: username
-          required: True
-          multiline: False
-          hint_text: "Username"
-          pos_hint: {"center_x": 0.5, "center_y":1}
-          size_hint_x: 0.5
-          mode: "rectangle"
-          helper_text_mode: "on_error"
-          helper_text: "Enter Username"
+              ImageLeftWidget:
+                  source: "icons/iuser.png"
 
-      MDTextField:
-          id: passwd
-          required: True
-          multiline: False
-          hint_text: "Password"
-          pos_hint: {"center_x": 0.5, "center_y":1}
-          size_hint_x: 0.5
-          password: True
-          mode: "rectangle"
-          helper_text_mode: "on_error"
-          helper_text: "Enter Pssword"
+          OneLineAvatarListItem:
+              text: "Dashboard"
 
-      GridLayout:
-          cols: 2
-          rows: 1
+              ImageLeftWidget:
+                  source: "icons/idashboard.png"
 
-          MDBoxLayout:
-              AnchorLayout:
-                  anchor_x: 'right'
-                  padding: ["10dp", "5dp"]
+          OneLineAvatarListItem:
+              text: "Appointments"
 
-                  MDRaisedButton:
-                      id: "login_submit"
-                      text: "Submit"
-                      md_bg_color: 43/255.0, 194/255.0, 153/255.0, 1
-                      pos_hint: {"center_x": 0.5}
-                      elevation: 20
-                      on_press: root.check_login()
+              ImageLeftWidget:
+                  source: "icons/i_view_schedule.png"
 
-          MDBoxLayout:
-              AnchorLayout:
-                  anchor_x: 'left'
-                  padding: ["10dp", "5dp"]
+          OneLineAvatarListItem:
+              text: "Events & Meetings"
 
-                  MDRaisedButton:
-                      text: "Cancel"
-                      md_bg_color: 252/255.0, 175/255.0, 8/255.0, 1
-                      pos_hint: {"center_x": 0.5}
-                      elevation: 20
-                      on_press: root.manager.current = "welcome_screen"
+              ImageLeftWidget:
+                  source: "icons/i_event.png"
+
+          OneLineAvatarListItem:
+              text: "Messages"
+
+              ImageLeftWidget:
+                  source: "icons/ichat.png"
+
+          OneLineAvatarListItem:
+              text: "Reviews"
+
+              ImageLeftWidget:
+                  source: "icons/i_reviews.png"
+
+          OneLineAvatarListItem:
+              text: "Customers & Clients"
+
+              ImageLeftWidget:
+                  source: "icons/icustomers2.png"
+
+          OneLineAvatarListItem:
+              text: "Checkout"
+
+              ImageLeftWidget:
+                  source: "icons/icheckout_cart2.png"
+
+          OneLineAvatarListItem:
+              text: "Finance"
+
+              ImageLeftWidget:
+                  source: "icons/icheckout_euro.png"
+
+          OneLineAvatarListItem:
+              text: "Reports"
+
+              ImageLeftWidget:
+                  source: "icons/i_reports_2.png"
+
+          OneLineAvatarListItem:
+              text: "Settings"
+
+              ImageLeftWidget:
+                  source: "icons/i_systems.png"
+
+
+          OneLineAvatarListItem:
+              text: "Logout"
+              on_press: app.logout()
+
+              ImageLeftWidget:
+                  source: "icons/i_logout.png"
