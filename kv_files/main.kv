@@ -42,25 +42,25 @@
     spacing: "10dp"
     size_hint: None, None
     size_hint: (1, 1)
-    md_bg_color: (1,1,1,1)
 
 
 <MenuBox@MDBoxLayout>:
     orientation: "vertical"
     size_hint: None, None
     size_hint: (1, 1)
-    md_bg_color: (1,1,1,1)
 
+<MenuLabel@MDLabel>:
+    size_hint: None, None
+    size_hint: (1, 0.2)
+    halign: "center"
 
 
 <MenuImage@Image>:
-    allow_stretch: True
+    allow_stretch: False
     size_hint: None, None
-    size_hint_x: 0.7
-    size_hint_y: 0.7
+    size_hint_x: 0.3
+    size_hint_y: 0.3
     pos_hint: {"center_x": 0.5, "center_y":0.5}
-
-
 
 
 <MenuScreen>:
@@ -76,7 +76,6 @@
             do_scroll_x: False
             do_scroll_y: True
 
-
             GridLayout:
                 size_hint_y: None
                 cols: 3
@@ -84,117 +83,157 @@
                 row_default_height: 320
                 minimum_height: self.height
 
-                MenuButton:
-                    on_press: root.manager.current = "manage_profile"
-                    GridLayout:
-                        cols: 1
-                        row_default_height: self.parent.height
-                        width: self.parent.width
+                MenuItem:
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
 
-                        MenuItem:
-                            MenuBox:
-                                MDBoxLayout:
-                                    size_hint: None, None
-                                    size_hint: (0.5, 0.5)
-                                    pos_hint: None, None
-                                    pos_hint:{"center_x":0.5, "center_y":0.5}
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/bank.png"
+                            MenuLabel:
+                                text: "Dashboard"
 
-                                    MenuImage:
-                                        source: "icons/iuser.png"
-                            MDLabel:
+                MenuItem:
+                    MDCard:
+                        on_release:
+                            root.manager.current = "manage_profile"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/user.png"
+                            MenuLabel:
                                 text: "Profile"
-                                halign: "center"
-                                md_bg_color: (1,1,1,1)
-                                size_hint: None, None
-                                size_hint_y: .2
-                                size_hint_x: 1
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/idashboard.png"
-                        MDLabel:
-                            text: "Dashboard"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/calendar.png"
+                            MenuLabel:
+                                text: "Events & Meetings"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/i_view_schedule.png"
-                        MDLabel:
-                            text: "Appointments"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/book-alt.png"
+                            MenuLabel:
+                                text: "Appointments"
+
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/i_event.png"
-                        MDLabel:
-                            text: "Events & Meetings"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/comment-alt.png"
+                            MenuLabel:
+                                text: "Messages"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/ichat.png"
-                        MDLabel:
-                            text: "Messages"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/comment-user.png"
+                            MenuLabel:
+                                text: "Reviews"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/i_reviews.png"
-                        MDLabel:
-                            text: "Reviews"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/portrait.png"
+                            MenuLabel:
+                                text: "Customers & Clients"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/i_reviews.png"
-                        MDLabel:
-                            text: "Customers & Clients"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/shopping-cart.png"
+                            MenuLabel:
+                                text: "Checkout"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/icustomers2.png"
-                        MDLabel:
-                            text: "Checkout"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/dollar.png"
+                            MenuLabel:
+                                text: "Finance"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/icheckout_cart2.png"
-                        MDLabel:
-                            text: "Finance"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/settings.png"
+                            MenuLabel:
+                                text: "Settings"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/icheckout_euro.png"
-                        MDLabel:
-                            text: "Reports"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/layers.png"
+                            MenuLabel:
+                                text: "Synchronize"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/i_systems.png"
-                        MDLabel:
-                            text: "Settings"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/bell-ring.png"
+                            MenuLabel:
+                                text: "Notifications"
 
                 MenuItem:
-                    MenuBox:
-                        MenuImage:
-                            source: "icons/i_logout.png"
-                        MDLabel:
-                            text: "Logout"
-                            halign: "center"
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
 
-                Widget:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/chart-histogram.png"
+                            MenuLabel:
+                                text: "Reports"
+
+                MenuItem:
+                    MDCard:
+                        on_release:
+                            root.manager.current = "dashboard"
+
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/power.png"
+                            MenuLabel:
+                                text: "Logout"

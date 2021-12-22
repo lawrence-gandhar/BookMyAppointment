@@ -1,76 +1,73 @@
-MDList:
-          OneLineAvatarListItem:
-              text: "Profile"
-              on_press:
-                  root.manager.current = "manage_profile"
 
-              ImageLeftWidget:
-                  source: "icons/iuser.png"
+                MDCard:
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/i_event.png"
+                            MDLabel:
+                                text: "Events & Meetings"
+                                halign: "center"
 
-          OneLineAvatarListItem:
-              text: "Dashboard"
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/ichat.png"
+                            MDLabel:
+                                text: "Messages"
+                                halign: "center"
 
-              ImageLeftWidget:
-                  source: "icons/idashboard.png"
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/i_reviews.png"
+                            MDLabel:
+                                text: "Reviews"
+                                halign: "center"
 
-          OneLineAvatarListItem:
-              text: "Appointments"
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/i_reviews.png"
+                            MDLabel:
+                                text: "Customers & Clients"
+                                halign: "center"
 
-              ImageLeftWidget:
-                  source: "icons/i_view_schedule.png"
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/icustomers2.png"
+                            MDLabel:
+                                text: "Checkout"
+                                halign: "center"
 
-          OneLineAvatarListItem:
-              text: "Events & Meetings"
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/icheckout_cart2.png"
+                            MDLabel:
+                                text: "Finance"
+                                halign: "center"
 
-              ImageLeftWidget:
-                  source: "icons/i_event.png"
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/icheckout_euro.png"
+                            MDLabel:
+                                text: "Reports"
+                                halign: "center"
 
-          OneLineAvatarListItem:
-              text: "Messages"
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/i_systems.png"
+                            MDLabel:
+                                text: "Settings"
+                                halign: "center"
 
-              ImageLeftWidget:
-                  source: "icons/ichat.png"
-
-          OneLineAvatarListItem:
-              text: "Reviews"
-
-              ImageLeftWidget:
-                  source: "icons/i_reviews.png"
-
-          OneLineAvatarListItem:
-              text: "Customers & Clients"
-
-              ImageLeftWidget:
-                  source: "icons/icustomers2.png"
-
-          OneLineAvatarListItem:
-              text: "Checkout"
-
-              ImageLeftWidget:
-                  source: "icons/icheckout_cart2.png"
-
-          OneLineAvatarListItem:
-              text: "Finance"
-
-              ImageLeftWidget:
-                  source: "icons/icheckout_euro.png"
-
-          OneLineAvatarListItem:
-              text: "Reports"
-
-              ImageLeftWidget:
-                  source: "icons/i_reports_2.png"
-
-          OneLineAvatarListItem:
-              text: "Settings"
-
-              ImageLeftWidget:
-                  source: "icons/i_systems.png"
-
-
-          OneLineAvatarListItem:
-              text: "Logout"
-              on_press: app.logout()
-
-              ImageLeftWidget:
-                  source: "icons/i_logout.png"
+                    MenuItem:
+                        MenuBox:
+                            MenuImage:
+                                source: "icons/i_logout.png"
+                            MDLabel:
+                                text: "Logout"
+                                halign: "center"
