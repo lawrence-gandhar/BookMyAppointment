@@ -12,19 +12,6 @@ Config.set('graphics', 'width', '540')
 # fix the height of the window
 Config.set('graphics', 'height', '960')
 
-import kivy
-
-kivy.require('2.0.0')
-
-from kivymd.app import MDApp
-from kivymd.uix.button import MDFlatButton
-from kivymd.uix.toolbar import MDToolbar
-
-from kivy.lang.builder import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.graphics import *
-from kivy.core.window import Window
-
 import json
 import requests
 import urllib3
@@ -33,6 +20,23 @@ import idna
 import PIL
 
 from datetime import datetime
+
+import kivy
+
+kivy.require('2.0.0')
+
+from kivymd.app import MDApp
+from kivymd.uix.button import MDFlatButton
+from kivymd.uix.toolbar import MDToolbar
+from kivy.uix.tabbedpanel import TabbedPanel
+from kivymd.uix.floatlayout import MDFloatLayout
+
+from kivy.lang.builder import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.graphics import *
+from kivy.core.window import Window
+
+
 
 from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 
@@ -68,7 +72,7 @@ class WelcomeScreen(Screen):
 # ==============================================================================
 class SignUpScreen(Screen):
 
-    def signup():
+    def signup(self):
         email = self.ids.email.text
         password = self.ids.passwd.text
         first_name = self.ids.first_name.text
@@ -152,6 +156,14 @@ class Dashboard(Screen):
 # DASHBOARD SCREEN
 # ==============================================================================
 class Profile(Screen):
+    pass
+
+
+# ==============================================================================
+# DASHBOARD SCREEN
+# ==============================================================================
+class Tab(TabbedPanel):
+    '''Class implementing content for a tab.'''
     pass
 
 #

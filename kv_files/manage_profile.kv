@@ -1,10 +1,11 @@
 #:kivy 2.0.0
+#: import math math
 
 <Profile>:
     name: "manage_profile"
     id: manage_profile
 
-    MDBoxLayout:
+    BoxLayout:
         orientation: "vertical"
         md_bg_color: (1, 1, 1, 1)
 
@@ -13,34 +14,102 @@
 
 
         ScrollView:
+            BoxLayout:
+                orientation: 'vertical'
+                
+                FloatLayout:
+                    
+                    Widget:
+                        size: 380, 380
+                        size_hint: None, None
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        
+                        canvas:
+                            Color:
+                                rgb: 255/255.0, 140/255.0, 0/255.0, 1
 
-            MDBoxLayout:
-                orientation: "vertical"
+                            Ellipse:
+                                size: self.size
+                                pos: self.pos
 
+                    Widget:
+                        size: 370, 370
+                        size_hint: None, None
+                        pos_hint: {'center_x': .518, 'center_y': .55}
+                        
+                        canvas:
+                            Color:
+                                rgb: 1, 1, 1
+
+                            Ellipse:
+                                size: self.size[0]-40, self.size[0]-40
+                                pos: self.pos
+
+
+                    Widget:
+                        size: 365, 365
+                        size_hint: None, None
+                        pos_hint: {'center_x': .518, 'center_y': .55}
+                        
+                        canvas:
+                            Color:
+                                rgb: 1, 1, 1, 1
+
+                            Ellipse:
+                                size: self.size[0]-40, self.size[0]-40
+                                pos: self.pos
+                                source: "images/download.jpeg"
+
+                
+              
                 MDCard:
-                    canvas:
-                        Color:
-                            rgba: (1, 1, 1, 1)
-                        Rectangle:
-                            pos: ((self.parent.size[0]/2) - (350/2) - 10, self.parent.size[1]/2 + 100)
-                            size: 350, 350
-                            source: 'icons/user.png'
+                    size_hint: None, None
+                    size: root.size[0], root.size[1] - root.size[1]/3.5
+                    elevation: 0
 
-                MDLabel:
-                    halign: "center"
-                    pos_hint: {"center_x": 0.5}
-                    spacing: "20dp"
+                    GridLayout:
+                        cols: 1
+                        row_force_default: True
+                        row_default_height: 60
+                    
+                        MDLabel:
+                            text: "Guido Van Rossum"
+                            halign: "center"
 
-                MDTextField:
-                    required: True
-                    multiline: False
-                    hint_text: "Username"
-                    pos_hint: {"center_x": 0.5}
-                    size_hint_x: 0.5
+                        MDLabel:
+                            text: "ABCD-1889354"
+                            halign: "center"
+                            bold: True
 
-                MDTextField:
-                    required: True
-                    multiline: False
-                    hint_text: "Password"
-                    pos_hint: {"center_x": 0.5}
-                    size_hint_x: 0.5
+                        MDCard:
+                            size: root.size[0], 200
+                            elevation: 0
+                            
+                            MDRelativeLayout:
+                                MDCard:
+                                    size_hint: None, None
+                                    size: 300, 40
+                                    orientation: "horizontal"
+                                    pos_hint: {'center_x': 0.5, 'center_y': .5}
+                                    elevation: 0
+
+                                    Image:
+                                        source: "icons/star-48.png"
+
+                                    Image:
+                                        source: "icons/star-48.png"
+
+                                    Image:
+                                        source: "icons/star-48.png"
+
+                                    Image:
+                                        source: "icons/star-48.png"
+
+                                    Image:
+                                        source: "icons/star-48.png"
+
+                            
+                        BoxLayout:
+                            Tab:
+                            
+                            
