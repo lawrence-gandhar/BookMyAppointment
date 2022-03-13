@@ -25,18 +25,20 @@ import kivy
 
 kivy.require('2.0.0')
 
-from kivymd.app import MDApp
-from kivymd.uix.button import MDFlatButton
-from kivymd.uix.toolbar import MDToolbar
-from kivy.uix.tabbedpanel import TabbedPanel
-from kivymd.uix.floatlayout import MDFloatLayout
+
 
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.graphics import *
 from kivy.core.window import Window
+from kivy.uix.tabbedpanel import TabbedPanel
 
+from kivymd.app import MDApp
+from kivymd.uix.button import MDFlatButton, ButtonBehavior
+from kivymd.uix.toolbar import MDToolbar
 
+from kivymd.uix.floatlayout import MDFloatLayout
+from kivymd.uix.label import MDLabel
 
 from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 
@@ -67,6 +69,7 @@ Builder.load_file("kv_files/custom_widgets.kv")
 class WelcomeScreen(Screen):
     pass
 
+
 # ==============================================================================
 # SignUp SCREEN
 # ==============================================================================
@@ -76,8 +79,6 @@ class SignUpScreen(Screen):
         email = self.ids.email.text
         password = self.ids.passwd.text
         first_name = self.ids.first_name.text
-
-
 
 
 # ==============================================================================
@@ -153,30 +154,74 @@ class Dashboard(Screen):
 
 
 # ==============================================================================
-# DASHBOARD SCREEN
+# MAIN TOOLBAR
 # ==============================================================================
-class Profile(Screen):
-   
-    def button_press(self):
-        print("pressed")
-        self.background_color=(1.0, 0.0, 0.0, 0.3)
-        
-    def button_press2(self):
-        print("2 pressed")
-        self.background_color=(1.0, 0.0, 0.0, 0.3)
-
-#
-#
-#
 class MainToolbar(MDToolbar):
     def show_menu(self, *args, **kwargs):
         self.parent.parent.manager.current = "menulist"
 
 
+# ==============================================================================
+# PROFILE SCREEN
+# ==============================================================================
+class Profile(Screen):
+    
+    BLUR_COLOR = (255/255.0, 140/255.0, 0/255.0, 0.2)
+    BLUR_TEXT_COLOR = (0, 0, 0, 1)
+    
+    ACTIVE_COLOR = (255/255.0, 140/255.0, 0/255.0, 1)
+    ACTIVE_TEXT_COLOR = (1, 1, 1, 1)
+    
+    
+    #
+    #================================================================    
+    def button_press(self):
+        if self.ids.profile_tab.status:
+            self.ids.profile_tab.background_color = self.BLUR_COLOR
+            self.ids.profile_tab.color= self.BLUR_TEXT_COLOR
+            
+            self.ids.profile_gallery_tab.background_color = self.ACTIVE_COLOR
+            self.ids.profile_gallery_tab.color = self.ACTIVE_TEXT_COLOR
+            
+        else:
+            self.ids.profile_tab.background_color = self.ACTIVE_COLOR
+            self.ids.profile_tab.color = self.ACTIVE_TEXT_COLOR
+            
+            self.ids.profile_gallery_tab.background_color = self.BLUR_COLOR
+            self.ids.profile_gallery_tab.color = self.BLUR_TEXT_COLOR
+            
+        self.ids.profile_tab.status = not(self.ids.profile_tab.status)
+        self.ids.profile_gallery_tab.status = not(self.ids.profile_tab.status)
+        
+    #
+    #================================================================    
+    def button_press2(self):
+        if self.ids.profile_gallery_tab.status:
+            self.ids.profile_gallery_tab.background_color = self.BLUR_COLOR
+            self.ids.profile_gallery_tab.color = self.BLUR_TEXT_COLOR
+            
+            self.ids.profile_tab.background_color = self.ACTIVE_COLOR
+            self.ids.profile_tab.color = self.ACTIVE_TEXT_COLOR
+        else:
+            self.ids.profile_gallery_tab.background_color = self.ACTIVE_COLOR
+            self.ids.profile_gallery_tab.color = self.ACTIVE_TEXT_COLOR
+            
+            self.ids.profile_tab.background_color = self.BLUR_COLOR
+            self.ids.profile_tab.color = self.BLUR_TEXT_COLOR
+            
+        self.ids.profile_gallery_tab.status = not(self.ids.profile_gallery_tab.status)
+        self.ids.profile_tab.status = not(self.ids.profile_gallery_tab.status)
+        
+        
 
+
+# ==============================================================================
+# CSREEN MANAGER
+# ==============================================================================
 class ScreenManagement(ScreenManager):
     def __init__(self, **kwargs):
         super(ScreenManagement, self).__init__(**kwargs)
+
 
 # ==============================================================================
 # Main APP

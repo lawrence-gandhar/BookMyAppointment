@@ -43,9 +43,31 @@
 
 <ProfileDetails@MDCard>:
     elevation: 0
+    padding: [0, 20, 0, 0]
+    background_color: 1,0,0,1
 
 
 <TabButton@Button>:
-    size_hint: 1, 1
+    size_hint: None, None
+    size_hint_x: 1
+    height: 80
     background_normal: ''
-    background_color: 255/255.0, 140/255.0, 0/255.0, 1
+
+<TitleLabel@MDLabel>:
+    color: "black"
+    size_hint: None, None
+    size: 300, 80
+    position_hint: {"x":.2}
+    halign: "left"
+    valign: "top"
+    padding: [20, 20]
+    bold: True
+
+<DataLabel@MDLabel>:
+    color: "black"
+    size_hint: None, None
+    size: self.parent.size[0]-290, 80
+    position_hint: {"x":.1}
+    halign: "left"
+    valign: "top"
+    padding: [10, 10]

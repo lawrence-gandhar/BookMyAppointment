@@ -12,111 +12,231 @@
 
         MainToolbar:
 
-
-        ScrollView:
-            BoxLayout:
-                orientation: 'vertical'
-                
-                FloatLayout:
-                    
-                    Widget:
-                        size: 380, 380
-                        size_hint: None, None
-                        pos_hint: {'center_x': .5, 'center_y': .5}
-                        
-                        canvas:
-                            Color:
-                                rgb: 255/255.0, 140/255.0, 0/255.0, 1
-
-                            Ellipse:
-                                size: self.size
-                                pos: self.pos
-
-                    Widget:
-                        size: 370, 370
-                        size_hint: None, None
-                        pos_hint: {'center_x': .518, 'center_y': .55}
-                        
-                        canvas:
-                            Color:
-                                rgb: 1, 1, 1
-
-                            Ellipse:
-                                size: self.size[0]-40, self.size[0]-40
-                                pos: self.pos
-
-
-                    Widget:
-                        size: 365, 365
-                        size_hint: None, None
-                        pos_hint: {'center_x': .518, 'center_y': .55}
-                        
-                        canvas:
-                            Color:
-                                rgb: 1, 1, 1, 1
-
-                            Ellipse:
-                                size: self.size[0]-40, self.size[0]-40
-                                pos: self.pos
-                                source: "images/download.jpeg"
-
-                MDCard:
+        BoxLayout:
+            orientation: 'vertical'
+            md_bg_color: (1, 1, 1, 1)
+            height: self.minimum_height
+            
+            FloatLayout:
+                Widget:
+                    size: 380, 380
                     size_hint: None, None
-                    size: root.size[0], root.size[1] - root.size[1]/3.5
-                    elevation: 0
-
-                    GridLayout:
-                        cols: 1
-                        row_force_default: True
-                        row_default_height: 60
+                    pos_hint: {'center_x': .5, 'center_y': .5}
                     
-                        MDLabel:
-                            text: "Guido Van Rossum"
-                            halign: "center"
+                    canvas:
+                        Color:
+                            rgb: 255/255.0, 140/255.0, 0/255.0, 1
 
-                        MDLabel:
-                            text: "ABCD-1889354"
-                            halign: "center"
-                            bold: True
+                        Ellipse:
+                            size: self.size
+                            pos: self.pos
 
-                        MDCard:
-                            size: root.size[0], 200
-                            elevation: 0
+                Widget:
+                    size: 370, 370
+                    size_hint: None, None
+                    pos_hint: {'center_x': .518, 'center_y': .55}
+                    
+                    canvas:
+                        Color:
+                            rgb: 1, 1, 1
+
+                        Ellipse:
+                            size: self.size[0]-40, self.size[0]-40
+                            pos: self.pos
+
+
+                Widget:
+                    size: 365, 365
+                    size_hint: None, None
+                    pos_hint: {'center_x': .518, 'center_y': .55}
+                    
+                    canvas:
+                        Color:
+                            rgb: 1, 1, 1, 1
+
+                        Ellipse:
+                            size: self.size[0]-40, self.size[0]-40
+                            pos: self.pos
+                            source: "images/download.jpeg"
+
+            MDCard:
+                size_hint: None, None
+                size: root.size[0], root.size[1] - root.size[1]/3.5
+                elevation: 0
+
+                GridLayout:
+                    cols: 1
+                
+                    MDLabel:
+                        text: "Guido Van Rossum"
+                        halign: "center"
+                        size_hint: None, None
+                        size: root.size[0], 60
+
+                    MDLabel:
+                        text: "ABCD-1889354"
+                        halign: "center"
+                        bold: True
+                        size_hint: None, None
+                        size: root.size[0], 60
+
+
+                    MDCard:
+                        elevation: 0
+                        size_hint: None, None
+                        size: root.size[0], 60
+                        
+                        MDRelativeLayout:
+                            MDCard:
+                                size_hint: None, None
+                                size: 300, 40
+                                orientation: "horizontal"
+                                pos_hint: {'center_x': 0.5, 'center_y': .5}
+                                elevation: 0
+                                
+                                Image:
+                                    source: "icons/star-48.png"
+
+                                Image:
+                                    source: "icons/star-48.png"
+
+                                Image:
+                                    source: "icons/star-48.png"
+
+                                Image:
+                                    source: "icons/star-48.png"
+
+                                Image:
+                                    source: "icons/star-48.png"
+
+                    ProfileDetails:
+                        size_hint: None, None
+                        size: root.size[0], 100
+
+                        GridLayout:
+                            cols: 2
+
+                            TabButton:
+                                id: profile_tab 
+                                text: "Profile"
+                                status: True
+                                on_press: root.button_press()
+                                background_color: 255/255.0, 140/255.0, 0/255.0, 1
+
+                            TabButton:
+                                id: profile_gallery_tab
+                                text: "Gallery"
+                                status: False
+                                on_press: root.button_press2()
+                                background_color: 255/255.0, 140/255.0, 0/255.0, 0.2
+                                color: 0, 0, 0, 1
+
                             
-                            MDRelativeLayout:
-                                MDCard:
-                                    size_hint: None, None
-                                    size: 300, 40
-                                    orientation: "horizontal"
-                                    pos_hint: {'center_x': 0.5, 'center_y': .5}
-                                    elevation: 0
+                                
+                    MDCard:
+                        ScrollView:
+                            do_scroll_x: False
+                            do_scroll_y: True
+                            effect_cls_y: "ScrollEffect"
 
-                                    Image:
-                                        source: "icons/star-48.png"
-
-                                    Image:
-                                        source: "icons/star-48.png"
-
-                                    Image:
-                                        source: "icons/star-48.png"
-
-                                    Image:
-                                        source: "icons/star-48.png"
-
-                                    Image:
-                                        source: "icons/star-48.png"
-
-                        ProfileDetails:
-                            
                             GridLayout:
-
                                 cols: 2
+                                size_hint_y: None
+                                height: self.minimum_height + 100
+                                
 
-                                TabButton:
-                                    text: "Profile"
-                                    on_press: root.button_press()
-
-                                TabButton:
-                                    text: "Gallery"
-                                    on_press: root.button_press2()
+                                TitleLabel:
+                                    text: "Phone No."
                                     
+                                DataLabel:
+                                    text: ": +919800238528"
+
+                                TitleLabel:
+                                    text: "Mobile No."
+
+                                DataLabel:
+                                    text: ": +919800238528"
+
+                                TitleLabel:
+                                    text: "Flat No."
+
+                                DataLabel:
+                                    text: ": 6/1 New South Park"
+
+                                TitleLabel:
+                                    text: "Street/Landmark"
+
+                                DataLabel:
+                                    text: ": Near Kishore Bhani Club, Baghajitin Moore, Opp. Kazipara Masjid"
+
+                                TitleLabel:
+                                    text: "City"
+
+                                DataLabel:
+                                    text: ": Kolkata - 700092"
+
+                                TitleLabel:
+                                    text: "State/Province"
+
+                                DataLabel:
+                                    text: ": West Bengal"
+
+                                TitleLabel:
+                                    text: "Country"
+
+                                DataLabel:
+                                    text: ": India"
+
+                                TitleLabel:
+                                    text: "Email"
+
+                                DataLabel:
+                                    text: ": lawrence_gandhar@yahoo.com"
+
+                                TitleLabel:
+                                    text: "Phone No."
+                                    
+                                DataLabel:
+                                    text: ": +919800238528"
+
+                                TitleLabel:
+                                    text: "Mobile No."
+
+                                DataLabel:
+                                    text: ": +919800238528"
+
+                                TitleLabel:
+                                    text: "Flat No."
+
+                                DataLabel:
+                                    text: ": 6/1 New South Park"
+
+                                TitleLabel:
+                                    text: "Street/Landmark"
+
+                                DataLabel:
+                                    text: ": Near Kishore Bhani Club, Baghajitin"
+
+                                TitleLabel:
+                                    text: "City"
+
+                                DataLabel:
+                                    text: ": Kolkata - 700092"
+
+                                TitleLabel:
+                                    text: "State/Province"
+
+                                DataLabel:
+                                    text: ": West Bengal"
+
+                                TitleLabel:
+                                    text: "Country"
+
+                                DataLabel:
+                                    text: ": India"
+
+                                TitleLabel:
+                                    text: "Email"
+
+                                DataLabel:
+                                    text: ": lawrence_gandhar@yahoo.com"
