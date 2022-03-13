@@ -40,13 +40,6 @@
             halign: "center"
             font_style: "Subtitle1"
 
-
-<ProfileDetails@MDCard>:
-    elevation: 0
-    padding: [0, 20, 0, 0]
-    background_color: 1,0,0,1
-
-
 <TabButton@Button>:
     size_hint: None, None
     size_hint_x: 1
@@ -63,6 +56,15 @@
     padding: [20, 20]
     bold: True
 
+<TitleSep@MDLabel>:
+    color: "black"
+    size_hint: None, None
+    bold: True
+    valign: "top"
+    size: 20, 80
+    text: ":"
+
+
 <DataLabel@MDLabel>:
     color: "black"
     size_hint: None, None
@@ -71,3 +73,5 @@
     halign: "left"
     valign: "top"
     padding: [10, 10]
+
+

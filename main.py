@@ -31,19 +31,15 @@ from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.graphics import *
 from kivy.core.window import Window
-from kivy.uix.tabbedpanel import TabbedPanel
 
 from kivymd.app import MDApp
-from kivymd.uix.button import MDFlatButton, ButtonBehavior
 from kivymd.uix.toolbar import MDToolbar
-
-from kivymd.uix.floatlayout import MDFloatLayout
-from kivymd.uix.label import MDLabel
 
 from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 
 from helper_files import dbmodels as db
 from helper_files.custom_widgets import CredententialsErrorSnackbar
+
 
 #
 # COLOR CONSTANTS
@@ -161,6 +157,7 @@ class MainToolbar(MDToolbar):
         self.parent.parent.manager.current = "menulist"
 
 
+
 # ==============================================================================
 # PROFILE SCREEN
 # ==============================================================================
@@ -176,42 +173,36 @@ class Profile(Screen):
     #
     #================================================================    
     def button_press(self):
+        
+        self.ids.profile_tab.background_color = self.ACTIVE_COLOR
+        self.ids.profile_tab.color = self.ACTIVE_TEXT_COLOR
+        
         if self.ids.profile_tab.status:
-            self.ids.profile_tab.background_color = self.BLUR_COLOR
-            self.ids.profile_tab.color= self.BLUR_TEXT_COLOR
+            self.ids.profile_gallery_tab.status = False
+        
+        
+        self.ids.profile_gallery_tab.background_color = self.BLUR_COLOR
+        self.ids.profile_gallery_tab.color = self.BLUR_TEXT_COLOR
             
-            self.ids.profile_gallery_tab.background_color = self.ACTIVE_COLOR
-            self.ids.profile_gallery_tab.color = self.ACTIVE_TEXT_COLOR
-            
-        else:
-            self.ids.profile_tab.background_color = self.ACTIVE_COLOR
-            self.ids.profile_tab.color = self.ACTIVE_TEXT_COLOR
-            
-            self.ids.profile_gallery_tab.background_color = self.BLUR_COLOR
-            self.ids.profile_gallery_tab.color = self.BLUR_TEXT_COLOR
-            
-        self.ids.profile_tab.status = not(self.ids.profile_tab.status)
-        self.ids.profile_gallery_tab.status = not(self.ids.profile_tab.status)
+        self.ids.profile_carousel.load_slide(self.ids.profile_carousel.slides[0])
+        
         
     #
     #================================================================    
     def button_press2(self):
-        if self.ids.profile_gallery_tab.status:
-            self.ids.profile_gallery_tab.background_color = self.BLUR_COLOR
-            self.ids.profile_gallery_tab.color = self.BLUR_TEXT_COLOR
-            
-            self.ids.profile_tab.background_color = self.ACTIVE_COLOR
-            self.ids.profile_tab.color = self.ACTIVE_TEXT_COLOR
-        else:
-            self.ids.profile_gallery_tab.background_color = self.ACTIVE_COLOR
-            self.ids.profile_gallery_tab.color = self.ACTIVE_TEXT_COLOR
-            
-            self.ids.profile_tab.background_color = self.BLUR_COLOR
-            self.ids.profile_tab.color = self.BLUR_TEXT_COLOR
-            
-        self.ids.profile_gallery_tab.status = not(self.ids.profile_gallery_tab.status)
-        self.ids.profile_tab.status = not(self.ids.profile_gallery_tab.status)
         
+        self.ids.profile_gallery_tab.background_color = self.ACTIVE_COLOR
+        self.ids.profile_gallery_tab.color = self.ACTIVE_TEXT_COLOR
+        
+        if self.ids.profile_gallery_tab:
+            self.ids.profile_tab.status = False
+            
+        self.ids.profile_tab.background_color = self.BLUR_COLOR
+        self.ids.profile_tab.color = self.BLUR_TEXT_COLOR
+            
+        self.ids.profile_carousel.load_slide(self.ids.profile_carousel.slides[1])    
+        
+          
         
 
 

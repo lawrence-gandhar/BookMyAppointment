@@ -80,7 +80,6 @@
                         size_hint: None, None
                         size: root.size[0], 60
 
-
                     MDCard:
                         elevation: 0
                         size_hint: None, None
@@ -109,9 +108,11 @@
                                 Image:
                                     source: "icons/star-48.png"
 
-                    ProfileDetails:
+                    MDCard:
                         size_hint: None, None
                         size: root.size[0], 100
+                        elevation: 0
+                        padding: [0, 20, 0, 0]
 
                         GridLayout:
                             cols: 2
@@ -131,112 +132,99 @@
                                 background_color: 255/255.0, 140/255.0, 0/255.0, 0.2
                                 color: 0, 0, 0, 1
 
-                            
-                                
                     MDCard:
-                        ScrollView:
-                            do_scroll_x: False
-                            do_scroll_y: True
-                            effect_cls_y: "ScrollEffect"
+                        elevation: 0
+                        padding: [0, 30]
 
-                            GridLayout:
-                                cols: 2
-                                size_hint_y: None
-                                height: self.minimum_height + 100
-                                
+                        Carousel: 
+                            id: profile_carousel
 
-                                TitleLabel:
-                                    text: "Phone No."
-                                    
-                                DataLabel:
-                                    text: ": +919800238528"
+                            MDCard:
+                                elevation: 0
 
-                                TitleLabel:
-                                    text: "Mobile No."
+                                ScrollView:
+                                    do_scroll_x: False
+                                    do_scroll_y: True
+                                    effect_cls_y: "ScrollEffect"
 
-                                DataLabel:
-                                    text: ": +919800238528"
+                                    GridLayout:
+                                        cols: 3
+                                        size_hint_y: None
+                                        height: self.minimum_height
+                                        
+                                        TitleLabel:
+                                            text: "Office Phone No."
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "+919800238528"
 
-                                TitleLabel:
-                                    text: "Flat No."
+                                        TitleLabel:
+                                            text: "Alt. Phone No."
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "+919806678887"
 
-                                DataLabel:
-                                    text: ": 6/1 New South Park"
+                                        TitleLabel:
+                                            text: "Mobile No."
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "+919800238528"
 
-                                TitleLabel:
-                                    text: "Street/Landmark"
+                                        TitleLabel:
+                                            text: "Flat No."
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "6/1 New South Park"
 
-                                DataLabel:
-                                    text: ": Near Kishore Bhani Club, Baghajitin Moore, Opp. Kazipara Masjid"
+                                        TitleLabel:
+                                            text: "Street"
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "Near Kishore Bhani Club, Baghajitin Moore"
 
-                                TitleLabel:
-                                    text: "City"
+                                        TitleLabel:
+                                            text: "Landmark"
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "Opp. Kazipara Masjid"
 
-                                DataLabel:
-                                    text: ": Kolkata - 700092"
+                                        TitleLabel:
+                                            text: "City"
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "Kolkata - 700092"
 
-                                TitleLabel:
-                                    text: "State/Province"
+                                        TitleLabel:
+                                            text: "State/Province"
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "West Bengal"
 
-                                DataLabel:
-                                    text: ": West Bengal"
+                                        TitleLabel:
+                                            text: "Country"
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "India"
 
-                                TitleLabel:
-                                    text: "Country"
+                                        TitleLabel:
+                                            text: "Email"
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "lawrence_gandhar@yahoo.com"
 
-                                DataLabel:
-                                    text: ": India"
+                                        TitleLabel:
+                                            text: "Email"
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "lawrence_gandhar@yahoo.com"
 
-                                TitleLabel:
-                                    text: "Email"
+                                        TitleLabel:
+                                            text: "Website"
+                                        TitleSep:
+                                        DataLabel:
+                                            text: "https://www.yahoo.com"
 
-                                DataLabel:
-                                    text: ": lawrence_gandhar@yahoo.com"
+                                        
+                            MDCard:
 
-                                TitleLabel:
-                                    text: "Phone No."
-                                    
-                                DataLabel:
-                                    text: ": +919800238528"
-
-                                TitleLabel:
-                                    text: "Mobile No."
-
-                                DataLabel:
-                                    text: ": +919800238528"
-
-                                TitleLabel:
-                                    text: "Flat No."
-
-                                DataLabel:
-                                    text: ": 6/1 New South Park"
-
-                                TitleLabel:
-                                    text: "Street/Landmark"
-
-                                DataLabel:
-                                    text: ": Near Kishore Bhani Club, Baghajitin"
-
-                                TitleLabel:
-                                    text: "City"
-
-                                DataLabel:
-                                    text: ": Kolkata - 700092"
-
-                                TitleLabel:
-                                    text: "State/Province"
-
-                                DataLabel:
-                                    text: ": West Bengal"
-
-                                TitleLabel:
-                                    text: "Country"
-
-                                DataLabel:
-                                    text: ": India"
-
-                                TitleLabel:
-                                    text: "Email"
-
-                                DataLabel:
-                                    text: ": lawrence_gandhar@yahoo.com"
+                        
