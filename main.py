@@ -156,15 +156,14 @@ class Dashboard(Screen):
 # DASHBOARD SCREEN
 # ==============================================================================
 class Profile(Screen):
-    pass
-
-
-# ==============================================================================
-# DASHBOARD SCREEN
-# ==============================================================================
-class Tab(TabbedPanel):
-    '''Class implementing content for a tab.'''
-    pass
+   
+    def button_press(self):
+        print("pressed")
+        self.background_color=(1.0, 0.0, 0.0, 0.3)
+        
+    def button_press2(self):
+        print("2 pressed")
+        self.background_color=(1.0, 0.0, 0.0, 0.3)
 
 #
 #
